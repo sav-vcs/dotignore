@@ -1,0 +1,78 @@
+# Sample .gitignore file demonstrating key patterns
+
+# Simple patterns
+*.log
+*.tmp
+
+# Negated patterns (exceptions)
+!important.log
+!logs/debug.log
+
+# Directory patterns
+/dist/
+build/
+**/bin/
+
+# Complex patterns with multiple asterisks
+**/node_modules/**
+docs/**/*.pdf
+
+# Specific files in specific locations
+/config/local.json
+src/generated/version.txt
+
+# Empty directories with .gitkeep
+!.gitkeep
+
+# OS specific patterns
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+._*
+
+# Linux
+*~
+.directory
+
+# Ignorar archivos del sistema
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Archivos compilados
+*.o
+*.obj
+*.exe
+*.dll
+*.class
+
+# Directorios de salida
+/bin/
+/build/
+/dist/
+/out/
+
+# Archivos temporales
+*.tmp
+*.log
+*.bak
+.~*
+
+# Configuración local
+.env
+.env.local
+config.local.json
+
+# Dependencias
+/node_modules/
+/vendor/
+/packages/
+
+# Archivos específicos de IDEs
+.vscode/
+.idea/
+*.sublime-*
+.project 

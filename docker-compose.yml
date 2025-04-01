@@ -1,0 +1,15 @@
+services:
+  dotignore:
+    build: .
+    volumes:
+      - .:/app
+    command: cargo test
+
+  # Servicio para ejecutar comandos específicos
+  dotignore_shell:
+    build: .
+    volumes:
+      - .:/app
+    command: bash
+    stdin_open: true
+    tty: true 

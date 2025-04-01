@@ -1,0 +1,1 @@
+/app/target/debug/libignore.rlib: /app/src/converter/convert_ignore.rs /app/src/converter/mod.rs /app/src/ignore/converter.rs /app/src/ignore/mod.rs /app/src/ignore/parser.rs /app/src/ignore/pattern.rs /app/src/lib.rs

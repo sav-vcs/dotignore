@@ -1,0 +1,63 @@
+This file exists only to preserve the empty directory in Git.
+With DotIgnore format, this file would be unnecessary because DotIgnore properly supports 
+empty directory preservation without requiring placeholder files.
+
+## How DotIgnore handles empty directories
+
+In traditional VCS like Git, you need placeholder files and complex .gitignore patterns:
+
+```gitignore
+# Keep empty directory (Git approach)
+!test/emptyfolder/
+test/emptyfolder/*
+!test/emptyfolder/.gitkeep
+```
+
+In DotIgnore format, you can directly specify directory preservation:
+
+```
+[directories] {
+# Keep this empty directory in version control
+&test/emptyfolder/    // The & prefix preserves the directory structure but ignores contents
+}
+```
+
+## How groups work in DotIgnore
+
+DotIgnore uses a group-based structure where patterns in one group don't affect others.
+This means you can organize patterns logically without worrying about rule interactions.
+
+Example:
+
+```
+[build] {
+# These patterns only apply to build artifacts
+*.o
+*.obj
+build/
+}
+
+[docs] {
+# These patterns only apply to documentation files - completely separate rules
+*.pdf
+*.docx
+}
+```
+
+## Size-based conditions in DotIgnore
+
+DotIgnore also supports advanced filtering based on file size:
+
+```
+[large_files] {
+# Ignore files larger than 100MB
+size:>100MB *.bin
+}
+
+[tiny_files] {
+# Ignore small temporary files under 1MB 
+size:<1MB *.tmp
+}
+```
+
+This powerful feature is not available in traditional ignore formats. 

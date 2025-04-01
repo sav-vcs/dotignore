@@ -1,0 +1,19 @@
+# Git
+.git
+.gitignore
+
+# Rust output directories
+target/
+
+# IDE directories
+.idea/
+.vscode/
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+
+# Docker files (opcional, si no quieres incluirlos en el build)
+# Dockerfile
+# .dockerignore 

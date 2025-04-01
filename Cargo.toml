@@ -1,0 +1,45 @@
+[package]
+name = "dotignore"
+version = "0.1.0"
+edition = "2021"
+authors = ["SAV Project"]
+description = "A unified ignore file format for version control systems and converters for GIT & SVN"
+license = "MIT"
+repository = "https://github.com/sav-vcs/dotignore"
+
+[lib]
+name = "ignore"
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[[bin]]
+name = "ignore"
+path = "src/main.rs"
+required-features = ["cli"]
+
+[features]
+default = ["cli"]
+cli = ["clap"]
+plugin = []
+serde = ["dep:serde", "dep:serde_json"]
+
+[dependencies]
+regex = "1.9"
+walkdir = "2.3"
+thiserror = "1.0"
+anyhow = "1.0"
+lazy_static = "1.4.0"
+chrono = "0.4.31"
+serde = { version = "1.0", features = ["derive"], optional = true }
+serde_json = { version = "1.0", optional = true }
+clap = { version = "4.4", features = ["derive"], optional = true }
+tempfile = "3.6"
+
+[dev-dependencies]
+tempfile = "3.6"
+
+[profile.release]
+lto = true
+strip = true  # Reduce tamaño del binario
+codegen-units = 1
+panic = "abort"

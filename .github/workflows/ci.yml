@@ -1,0 +1,99 @@
+name: Build DotIgnore
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Tests
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      
+      - name: Run tests
+        run: cargo test
+  
+  build:
+    name: Build Artifacts
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      
+      - name: Build library and plugin
+        run: cargo build --release
+      
+      - name: Build CLI tool
+        run: cargo build --release --features cli
+      
+      - name: List files in release directory (Unix)
+        if: runner.os != 'Windows'
+        run: ls -la target/release/
+        
+      - name: List files in release directory (Windows)
+        if: runner.os == 'Windows'
+        run: Get-ChildItem -Path target/release/
+      
+      - name: Create bin directories (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          mkdir -p bin/windows
+          mkdir -p bin/linux
+          mkdir -p bin/macos
+          
+      - name: Create bin directories (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          if (-not (Test-Path -Path "bin")) { New-Item -Path "bin" -ItemType Directory }
+          if (-not (Test-Path -Path "bin/windows")) { New-Item -Path "bin/windows" -ItemType Directory }
+          if (-not (Test-Path -Path "bin/linux")) { New-Item -Path "bin/linux" -ItemType Directory }
+          if (-not (Test-Path -Path "bin/macos")) { New-Item -Path "bin/macos" -ItemType Directory }
+      
+      - name: Copy binaries to bin directories (Windows)
+        if: matrix.os == 'windows-latest'
+        run: copy target\release\ignore.exe bin\windows\
+        shell: cmd
+      
+      - name: Copy binaries to bin directories (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: cp target/release/ignore bin/linux/
+        shell: bash
+      
+      - name: Copy binaries to bin directories (macOS)
+        if: matrix.os == 'macos-latest'
+        run: cp target/release/ignore bin/macos/
+        shell: bash
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotignore-${{ matrix.os }}
+          path: |
+            bin/
+            target/release/*.dll
+            target/release/*.so
+            target/release/*.dylib 

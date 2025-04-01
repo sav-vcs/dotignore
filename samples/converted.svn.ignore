@@ -1,0 +1,50 @@
+[default] {
+    # Default patterns
+}
+
+# Archivo .DotIgnore convertido desde .svnignore
+# Fecha de conversión: 2025-04-01 10:02:14
+
+[editor_files] {
+    .idea
+    .vscode
+    .project
+}
+
+[test_results_and_logs] {
+    test-results
+    coverage-report
+}
+
+[system_files_no_negation_syntax_in_svn] {
+    .DS_Store
+    Thumbs.db
+    desktop.ini
+}
+
+[svn_allows_patterns_separated_by_whitespace_on_the_same_line] {
+    *.log
+    *.tmp
+    *.bak
+}
+
+[binary_files] {
+    *.class
+    *.jar
+    *.exe
+    *.dll
+    *.so
+}
+
+[multiple_patterns_for_documentation] {
+    docs/*.pdf
+    docs/*.docx
+}
+
+[common_build_artifacts] {
+    build
+    dist
+    target
+    node_modules
+}
+

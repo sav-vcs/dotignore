@@ -1,0 +1,111 @@
+# Converted from .gitignore
+# Format version: 1.0
+
+[specific_files_in_specific_locations] {
+    # Patterns from .gitignore
+    /config/local.json
+    src/generated/version.txt
+}
+
+[dependencias] {
+    # Patterns from .gitignore
+    /node_modules/
+    /vendor/
+    /packages/
+}
+
+[ignorar_archivos_del_sistema] {
+    # Patterns from .gitignore
+    Thumbs.db
+    .DS_Store
+    desktop.ini
+}
+
+[complex_patterns_with_multiple_asterisks] {
+    # Patterns from .gitignore
+    **/node_modules/**
+    docs/**/*.pdf
+}
+
+[directorios_de_salida] {
+    # Patterns from .gitignore
+    /bin/
+    /build/
+    /dist/
+    /out/
+}
+
+[simple_patterns] {
+    # Patterns from .gitignore
+    *.log
+    *.tmp
+}
+
+[linux] {
+    # Patterns from .gitignore
+    *~
+    .directory
+}
+
+[negated_patterns_exceptions] {
+    # Patterns from .gitignore
+    !important.log
+    !logs/debug.log
+}
+
+[archivos_temporales] {
+    # Patterns from .gitignore
+    *.tmp
+    *.log
+    *.bak
+    .~*
+}
+
+[empty_directories_with_gitkeep] {
+    # Patterns from .gitignore
+    !.gitkeep
+}
+
+[macos] {
+    # Patterns from .gitignore
+    .DS_Store
+    ._*
+}
+
+[configuración_local] {
+    # Patterns from .gitignore
+    .env
+    .env.local
+    config.local.json
+}
+
+[directory_patterns] {
+    # Patterns from .gitignore
+    /dist/
+    build/
+    **/bin/
+}
+
+[archivos_compilados] {
+    # Patterns from .gitignore
+    *.o
+    *.obj
+    *.exe
+    *.dll
+    *.class
+}
+
+[archivos_específicos_de_ides] {
+    # Patterns from .gitignore
+    .vscode/
+    .idea/
+    *.sublime-*
+    .project
+}
+
+[windows] {
+    # Patterns from .gitignore
+    Thumbs.db
+    desktop.ini
+}
+

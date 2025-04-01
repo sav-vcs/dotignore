@@ -1,0 +1,22 @@
+# Sample .svnignore file
+
+# SVN allows patterns separated by whitespace on the same line
+*.log *.tmp *.bak
+
+# Common build artifacts
+build dist target node_modules
+
+# Binary files
+*.class *.jar *.exe *.dll *.so
+
+# Editor files
+.idea .vscode .project
+
+# Multiple patterns for documentation
+docs/*.pdf docs/*.docx
+
+# System files (no negation syntax in SVN)
+.DS_Store Thumbs.db desktop.ini
+
+# Test results and logs
+test-results coverage-report 

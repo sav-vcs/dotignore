@@ -1,0 +1,65 @@
+# DotIgnore basic ignore file
+# Uses the standard format with organized groups
+
+[system] {
+    # System files
+    .DS_Store
+    Thumbs.db
+    desktop.ini
+    *.lnk
+}
+
+[temp] {
+    # Temporary files
+    *~
+    *.tmp
+    *.temp
+    *.swp
+    *.swo
+}
+
+[logs] {
+    # Log files
+    *.log
+    logs/
+    npm-debug.log*
+    yarn-debug.log*
+    yarn-error.log*
+}
+
+[build] {
+    # Build results and dependencies
+    /target/
+    /dist/
+    /build/
+    node_modules/
+    *.o
+    *.obj
+    *.so
+    *.dylib
+    *.dll
+    *.exe
+}
+
+[ide] {
+    # IDE specific files
+    .idea/
+    .vscode/
+    *.iml
+    *.ipr
+    *.iws
+    *.sublime-*
+    .project
+    .classpath
+}
+
+[misc] {
+    # Other common ignore patterns
+    .env
+    .env.local
+    .cache/
+    .coverage
+    &empty_dirs/ # Preserves empty directories
+}
+
+# End of file 
