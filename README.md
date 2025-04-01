@@ -1,10 +1,10 @@
-# DotIgnore
+# dotIgnore
 
 > A unified format for ignore files across all version control systems
 
 ## Overview
 
-DotIgnore is a standardized format to define which files should be ignored in version control systems, compatible with Git, SVN, and others. It offers a more organized and semantic approach than traditional formats, with grouping, hierarchical organization, and advanced features.
+dotIgnore is a standardized format to define which files should be ignored in version control systems, compatible with Git, SVN, and others. It offers a more organized and semantic approach than traditional formats, with grouping, hierarchical organization, and advanced features.
 
 [Read this in Spanish](docs/es/README.md)
 
@@ -16,29 +16,23 @@ DotIgnore is a standardized format to define which files should be ignored in ve
 - **Size-based filtering** to ignore files based on their size
 - **Clear syntax** with better readability and maintainability
 
-## Quick Start
+## Usage
 
-1. **Install DotIgnore**:
+dotIgnore is designed to be used with SAV (Semantic Artifact Versioning). When using SAV, dotIgnore is automatically installed and integrated.
 
-   ```bash
-   cargo install ignore
-   ```
+You can also use the standalone conversion tool:
 
-2. **Convert your existing ignore files**:
+```bash
+vcsconvert -i .gitignore -o .ignore
+```
 
-   ```bash
-   ignore -i .gitignore -o .ignore
-   ```
+The executable files are available in the `bin` directory and do not require installation.
 
-3. **Or create a new DotIgnore file**:
-
-   ```bash
-   ignore -n -o .ignore
-   ```
+> **Note:** Currently only Windows binaries are available. Linux and macOS binaries will be added soon.
 
 ## Format
 
-# DotIgnore format example
+# dotIgnore format example
 
 ```
 # This is an example .ignore file
@@ -73,13 +67,16 @@ DotIgnore is a standardized format to define which files should be ignored in ve
     size:>50MB *.bin
     size:>100MB *.data
 }
+
+# Empty directory preservation
+&empty-folder/
 ```
 
 ## Documentation
 
-- [Format Specification](docs/en/format/ignore_format.md)
-- [Integration Guide](docs/en/integration/plugin_integration.md)
-- [CLI Documentation](docs/en/cli/command_reference.md)
+- [Format Specification](docs/en/format/dotignore-format.md)
+- [Integration Guide](docs/en/integration/index.md)
+- [CLI Documentation](docs/en/cli/index.md)
 
 ## Installation
 
@@ -132,14 +129,7 @@ let result = DotIgnore::convert_file(".gitignore", Some(".ignore")).unwrap();
 
 ## Empty Directory Preservation
 
-One key feature of DotIgnore is supporting empty directories without placeholder files like `.gitkeep`. Use the `&` prefix:
-
-```
-# In .ignore
-&empty-folder/
-```
-
-This tells your VCS to preserve the directory even when empty.
+One key feature of dotIgnore is supporting empty directories without placeholder files like `.gitkeep`. Use the `&` prefix as shown in the example above.
 
 ## License
 
