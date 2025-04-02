@@ -1,6 +1,6 @@
 [package]
 name = "dotignore"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["SAV Project"]
 description = "A unified ignore file format for version control systems and converters for GIT & SVN"
