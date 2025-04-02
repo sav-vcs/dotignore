@@ -18,7 +18,7 @@ dotIgnore is a standardized format to define which files should be ignored in ve
 
 ## Usage
 
-dotIgnore is designed to be used with SAV (Semantic Artifact Versioning). When using SAV, dotIgnore is automatically installed and integrated.
+dotIgnore is designed to be used with SAV (Smart Adaptive Versioning). When using SAV, dotIgnore is automatically installed and integrated.
 
 You can also use the standalone conversion tool:
 
@@ -94,21 +94,6 @@ cd dotignore
 cargo build --release
 ```
 
-## Usage
-
-```bash
-# Convert a .gitignore to .ignore
-ignore -i .gitignore -o .ignore
-
-# Convert a .ignore to .gitignore
-ignore -c -f git -i .ignore -o .gitignore
-
-# Create a new .ignore file
-ignore -n -o .ignore
-
-# Validate a .ignore file
-ignore -v -i .ignore
-```
 
 ## API Usage
 
