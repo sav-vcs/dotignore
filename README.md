@@ -36,16 +36,14 @@ The executable files are available in the `bin` directory and do not require ins
 
 ```
 # This is an example .ignore file
-# Patterns outside groups are global
-
-*.tmp
-*.cache
 
 [system] {
     # System files
     .DS_Store
     Thumbs.db
     desktop.ini
+    *.tmp
+    *.cache
 }
 
 [build] {
@@ -56,21 +54,22 @@ The executable files are available in the `bin` directory and do not require ins
     *.obj
 }
 
-[logs:app] {
+[logs_app] {
     # Application logs
     logs/*.log
     !logs/important.log
 }
 
-[size:large] {
+[size_large] {
     # Large files
     size:>50MB *.bin
     size:>100MB *.data
 }
 
-# Empty directory preservation
-&empty-folder/
-```
+[empty_directories] {
+    # Empty directory preservation
+    &empty-folder/
+}
 
 ## Documentation
 
@@ -78,15 +77,7 @@ The executable files are available in the `bin` directory and do not require ins
 - [Integration Guide](docs/en/integration/index.md)
 - [CLI Documentation](docs/en/cli/index.md)
 
-## Installation
-
-### Using Cargo (Recommended)
-
-```bash
-cargo install ignore
-```
-
-### From Source
+### Source
 
 ```bash
 git clone https://github.com/yourusername/dotignore.git
@@ -94,20 +85,20 @@ cd dotignore
 cargo build --release
 ```
 
-## Usage
+## Usage of converter
 
 ```bash
 # Convert a .gitignore to .ignore
-ignore -i .gitignore -o .ignore
+scvconvert -i .gitignore -o .ignore
 
 # Convert a .ignore to .gitignore
-ignore -c -f git -i .ignore -o .gitignore
+scvconvert -c -f git -i .ignore -o .gitignore
 
 # Create a new .ignore file
-ignore -n -o .ignore
+scvconvert -n -o .ignore
 
 # Validate a .ignore file
-ignore -v -i .ignore
+scvconvert -v -i .ignore
 ```
 
 ## API Usage
