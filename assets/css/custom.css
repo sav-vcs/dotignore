@@ -1,0 +1,67 @@
+/* Estilos personalizados para complementar el tema Cayman */
+
+.code-block {
+  margin-bottom: 1rem;
+  background-color: #f3f6fa;
+  border-radius: 0.3rem;
+  padding: 0.8rem;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  color: #567482;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature {
+  background: #f3f6fa;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  border-left: 0.3rem solid #159957;
+}
+
+.feature h3 {
+  color: #159957;
+  margin-top: 0;
+}
+
+/* Ajustes responsive */
+@media screen and (max-width: 42em) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.main-content {
+  max-width: 72rem;
+}
+
+.language-selector {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.language-selector a {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.3rem;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  padding: 0.4rem 0.6rem;
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+.language-selector a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+} 
