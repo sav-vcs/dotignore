@@ -70,6 +70,7 @@ The executable files are available in the `bin` directory and do not require ins
     # Empty directory preservation
     &empty-folder/
 }
+```
 
 ## Documentation
 
